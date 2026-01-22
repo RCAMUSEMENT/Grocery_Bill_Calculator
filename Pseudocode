@@ -1,4 +1,4 @@
-PROGRAM GroceryBillCalculator
+PROGRAM Grocery_Bill_Calculator
     // Main function/method starts here
     METHOD main()
         DECLARE currencyFormat AS NumberFormat
