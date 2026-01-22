@@ -19,7 +19,7 @@ PROGRAM Grocery_Bill_Calculator
                 couponAmount = 0.10
             END IF
 
-            // Prompt user for weekly grocery bills
+            // Prompt user for weekly grocery bills for 4 weeks
             PRINT "Enter Week 1 grocery bill: "
             READ billWeek1 FROM scanner
             PRINT "Enter Week 2 grocery bill: "
