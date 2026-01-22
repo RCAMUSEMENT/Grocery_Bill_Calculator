@@ -1,0 +1,52 @@
+PROGRAM GroceryBillCalculator
+    // Main function/method starts here
+    METHOD main()
+        DECLARE currencyFormat AS NumberFormat
+        DECLARE couponAmount, billWeek1, billWeek2, billWeek3, billWeek4 AS Double
+        DECLARE totalMonthly, avgWeekly, totalMonthlyCoupon, avgWeeklyCoupon AS Double
+
+        // Start of try-with-resources block for Scanner
+        TRY (CREATE scanner AS Scanner USING System.in)
+            // Initialize currency formatter for US locale
+            currencyFormat = NumberFormat.getCurrencyInstance(Locale.US)
+
+            // Prompt user for coupon amount
+            PRINT "Enter the coupon amount as a decimal (example, .10): "
+            READ couponAmount FROM scanner
+
+            // Validate and potentially set default coupon value
+            IF couponAmount <= 0 OR couponAmount > 1.0 THEN
+                couponAmount = 0.10
+            END IF
+
+            // Prompt user for weekly grocery bills
+            PRINT "Enter Week 1 grocery bill: "
+            READ billWeek1 FROM scanner
+            PRINT "Enter Week 2 grocery bill: "
+            READ billWeek2 FROM scanner
+            PRINT "Enter Week 3 grocery bill: "
+            READ billWeek3 FROM scanner
+            PRINT "Enter Week 4 grocery bill: "
+            READ billWeek4 FROM scanner
+        // Scanner automatically closed here
+        END TRY
+
+        // Calculate monthly total and weekly average before coupon
+        totalMonthly = billWeek1 + billWeek2 + billWeek3 + billWeek4
+        avgWeekly = totalMonthly / 4.0
+
+        // Calculate monthly total and weekly average after coupon deduction
+        totalMonthlyCoupon = totalMonthly * (1 - couponAmount)
+        avgWeeklyCoupon = totalMonthlyCoupon / 4.0
+
+        // Output the results to the user
+        PRINT "--- Calculation Summary ---"
+        PRINT "Coupon amount used: " + (couponAmount * 100) + "%"
+        PRINT "Total Monthly Bill (Before Coupon): " + currencyFormat.format(totalMonthly)
+        PRINT "Average Weekly Bill (Before Coupon): " + currencyFormat.format(avgWeekly)
+        PRINT "Total Monthly Bill (After Coupon): " + currencyFormat.format(totalMonthlyCoupon)
+        PRINT "Average Weekly Bill (After Coupon): " + currencyFormat.format(avgWeeklyCoupon)
+        PRINT "---------------------------"
+
+    END METHOD
+END PROGRAM
