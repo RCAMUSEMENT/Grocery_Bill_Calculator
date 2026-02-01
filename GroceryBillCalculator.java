@@ -12,19 +12,17 @@ public class GroceryBillCalculator {
         double avgWeekly;
         double totalMonthlyCoupon;
         double avgWeeklyCoupon;
-        // Create a NumberFormat instance for currency formatting in US locale
-        try ( // Create a Scanner object for user input
-                Scanner scanner = new Scanner(System.in)) {
-            // Create a NumberFormat instance for currency formatting in US locale
+        
+        try (Scanner scanner = new Scanner(System.in)) {
             currencyFormat = NumberFormat.getCurrencyInstance(Locale.US);
-            // Define the variables
-            // Prompt the user for the coupons total amount as a decimal
+            
             System.out.print("Enter the coupon amount as a decimal (example, .10): ");
             couponAmount = scanner.nextDouble();
-            // Ensure the value is set to 10% (.10) if the value exceeds 100% or is less than or equal to zero
+            
             if (couponAmount <= 0 || couponAmount > 1.0) {
                 couponAmount = 0.10;
-            }   // Prompt the user for weeks 1-4 grocery bills total amounts
+            }
+            
             System.out.print("Enter Week 1 grocery bill: ");
             billWeek1 = scanner.nextDouble();
             System.out.print("Enter Week 2 grocery bill: ");
@@ -33,7 +31,6 @@ public class GroceryBillCalculator {
             billWeek3 = scanner.nextDouble();
             System.out.print("Enter Week 4 grocery bill: ");
             billWeek4 = scanner.nextDouble();
-            // Close the scanner
         }
 
         // Calculate the monthly and weekly average for groceries
