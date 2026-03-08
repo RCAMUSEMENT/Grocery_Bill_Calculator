@@ -2,7 +2,8 @@
  * Student Name: Ryley Carlson
  * CSC320 Module 2 Critical Thinking Assignment 2 - Option #2
  * Program: Grocery Bill Calculator
- * Description: This program calculates the total monthly grocery bill and the average weekly grocery bill based on user input for four weeks of grocery bills.
+ * Description: This program calculates the total monthly grocery bill and
+ * the average weekly grocery bill based on user input for four weeks of grocery bills.
  *  It also applies a coupon discount to calculate the adjusted totals and averages.
  *  The results are displayed in a formatted currency style.
  */
